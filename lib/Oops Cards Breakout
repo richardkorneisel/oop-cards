@@ -1,4 +1,4 @@
-zz/*
+/*
  * Define a Card class with the following properties:
  *
  *   - suit (hearts, spades, clubs, diamonds)
@@ -12,20 +12,27 @@ class Card {
     this.score = score
   }
 }
-let heartAce = new Card ("hearts", "Ace", 14)
-// to 51 more times
-
 class Deck {
-  constructor(length, cards, draw) {
-    this.length = length
-    this.cards = cards
-    this.draw = draw
+  constructor() {      //don't need parameters in constructor unless asking for user input
+    const suits = ['spades', 'clubs', 'diamonds', 'hearts'];
+    const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King", "Ace"];
+    var cards = [];  // creating an array to store cards
+      for(let i=0; i<suits.length; i++) {
+        for(let j=0; j<values.length; j++) {
+          var newCard = new Card (suits[i], values[j], j)
+          cards.push(newCard);
+        }
+      }
+    this.length = cards.length  //refrencing the length of the cards array
+    this.cards = cards //defining the cards property as the array
+    }
+  draw(){
+  // code for random card from array.  To do later.  
   }
-  var suits = ['spades', 'clubs', 'diamonds', 'hearts'];
-  var values = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];  
 }
-
-//create loop function
+var deck = new Deck();   // constructing new deck of cards from constructor Deck.
+console.log(deck.cards);  // calling cards array in deck
+console.log(deck.length);
 /*
  * Define a Deck class with the following properties and methods:
  *
